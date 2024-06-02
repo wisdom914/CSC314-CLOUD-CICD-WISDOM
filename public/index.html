@@ -63,25 +63,34 @@
 
         input[type="text"],
         input[type="number"] {
-            width: 100%;
-            padding: 10px;
+            width: 150%; /* Increased width */
+            padding: 15px; /* Increased padding */
             margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px; /* Increased border radius */
             box-sizing: border-box;
+            font-size: 18px; /* Increased font size */
         }
 
         button {
             background-color: green;
             color: lavender;
-            padding: 10px 20px;
+            padding: 15px 30px; /* Increased padding */
             border: none;
-            border-radius: 5px;
+            border-radius: 10px; /* Increased border radius */
             cursor: pointer;
+            font-size: 18px; /* Increased font size */
+            transition: all 0.3s ease; /* Added transition effect */
         }
 
         button:hover {
-            background-color: black;
+            background-color: darkgreen; /* Darken button color on hover */
+        }
+
+        #payment-success {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -100,7 +109,7 @@
     <section>
         <h2>Welcome to NACOSS Payment Portal</h2>
         <p>Make secure payments for your NACOSS dues and events.</p>
-        <form>
+        <form id="payment-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
             
@@ -112,10 +121,19 @@
 
             <button type="submit">Make Payment</button>
         </form>
+        <div id="payment-success" style="display: none;">Payment Successful</div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 NACOSS Payment System. All rights reserved.</p>
-    </footer>
+    
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Simulate payment processing (setTimeout is used here for demonstration purposes)
+            setTimeout(function() {
+                document.getElementById('payment-success').style.display = 'block'; // Show payment success message
+            }, 2000); // Simulate 2 seconds of payment processing
+        });
+    </script>
 </body>
 </html>
